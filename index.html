@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>  
+<head>
+<meta charset="utf-8" />
+<meta name="author" content="DedSec" >
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>HBD</title>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&display=swap" rel="stylesheet">
+
+<style>
+	h4{
+		background: red;
+	}
+
+h2{
+    color:red;
+    background-image: url(https://media.tenor.com/images/2b53f0ab2e99866c457664b3b401180d/tenor.gif);
+}
+*{
+ box-sizing:border-box;
+ padding:0;
+ margin:0;
+}
+body {
+padding:0;
+margin:0;
+min-height:100vh;
+font-family: 'Caveat', cursive;
+line-height:1.5;
+background:#000;
+color:pink;
+}
+.fixed {
+ position:fixed; 
+ top:0;
+ left:0;
+ bottom:0;
+ height:100vh;
+ width:100%;
+ display:flex;
+ align-items: center;
+ justify-content: center;
+ z-index:9;
+ overflow:hidden;
+ padding:20px;
+ background:#000;
+ transition:0.5s;
+}
+.loader {
+ text-align:center;
+}
+.loader h1{
+ font-size:2rem;
+ animation:blink 1s linear infinite;
+}
+@keyframes blink {
+ 0%,100%{
+  opacity:1;
+ }
+ 50%{
+  opacity:0;
+ } 
+}
+img {
+ width:100%;
+}
+section {
+ min-height:100vh;
+ transition:0.5s ease;
+}
+.sec2 {
+ position:relative;
+ display:none;
+}
+
+.overlay{
+ position:absolute;
+ top:0;
+ left:0;
+ height:100%;
+ width:100%;
+ background:rgba(0,0,0,0.5);
+ z-index:2;
+ }
+ section video{
+  position:absolute;
+  top:0;
+  left:0;
+  height:100vh;
+  width:100%;
+  object-fit:cover;
+  z-index:1;
+ }
+ .content {
+  position:absolute; 
+  z-index:3;
+  text-align:center;
+  width:100%;
+  padding:0 20px;
+  top:50%;
+  transform:translateY(-50%);
+ }
+.img {
+ height:150px;
+ width:150px;
+ border-radius:50%;
+ overflow:hidden;
+ margin:15px auto;
+ box-shadow:0px 0px 10px #ccc;
+ opacity:0.8;
+}
+.content h1{
+ font-size:2rem;
+ font-weight:bold;
+}
+p {
+ font-size:25px;
+}
+.summary img {
+ opacity:0.8;
+ margin-bottom:95px;
+}
+.summary h1{
+ font-size:38px;
+}
+.summary p {
+ font-size:20px;
+ margin-bottom:15px;
+}
+.heart {
+ position:absolute;
+ left:0;
+ top:0;
+ width:100%;
+ z-index:9;
+}
+button {
+ display:inline-block;
+ outline:none;
+ border:none;
+ border-radius:2px;
+ padding:6px 25px;
+ background:pink;
+ color:#fff;
+ font-family: 'Caveat', cursive;
+ letter-spacing:1px;0
+ font-size:20px;
+}
+.continue{
+ transform:translateY(30px);
+ transition:0.5s ease;
+ opacity:0;
+ z-index:0;
+}
+.continue.show {
+ transform:translateY(0);
+ opacity:1;
+ z-index:10;
+}
+.hide {
+ display:none;
+}
+
+.sec1{
+ background:linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url("https://media.tenor.com/images/f010c23099f4adb30136f7892b3c8d9e/tenor.gif" );
+ background-size:cover;
+ background-position: center bottom ;
+ z-index:6;
+ text-align:center;
+}
+.fieldset{
+
+}
+
+</style>
+</head>
+<body>
+<section class="fixed loader" onclick="playMusic()">
+  <div class="loader_content" >
+ <img src="https://media.tenor.com/images/e6b48078350bab337f72c87b9db13a66/tenor.gif" alt="9032c62eb6ed8f15fa18579f87dcfbd4" border="0">
+  
+    
+    <h1>Loading...</h1>
+    <button class="continue" onclick="showPage()" >Continue</button>
+  </div>
+</section>
+
+<section class="fixed sec1">
+
+  <div class="summary"><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br/><br /><br /><br />
+  <img src="https://i.ibb.co/J5Sn55R/58015b094d99d50f495ab7675ecc7330.gif" alt="58015b094d99d50f495ab7675ecc7330" border="0">
+  </div>
+ <div class="heart">
+ 	<h4><mark>Created By $@q!b</mark></h4><br><fieldset><h2><mark><i>Yes You Are The Special.On Your Birthday,
+May God Turns All Your Passion In To A Grand Success.May You Enjoy Today The Momentes Of Celebrations.
+ Wishing You A Very Fantastic Happy Birthday.<br>
+
+</br></i></mark></h2></fieldset>
+   
+  </div>
+</section>
+
+
+</section>
+<audio id="music" loop src="https://mobcup.net/d/peq8u8i0/mp3"></audio>
+
+<script>
+	alert("Turn Up Your Device Volume And Continue");
+const video = document.getElementById("video");
+const loader = document.querySelector(".loader");
+const music = document.getElementById("music");
+ window.addEventListener('load', function(){
+  hideLoad()
+ });
+ setTimeout(() => hideLoad(),14000) 
+ function hideLoad(){
+  document.querySelector(".loader_content h1").style.display = "none";
+  document.querySelector(".continue").classList.add("show"); 
+  
+ }
+function showPage() {
+  playMusic();
+  setTimeout(() => {
+  loader.style.display = "none";
+  },600)
+ 
+}
+ function playMusic() {
+  if(music.paused) {
+   music.play()
+  }
+ }
+ function nextPage() {
+  document.querySelector(".sec1").style.opacity = "0";
+  music.pause()
+  setTimeout(() => {
+   document.querySelector(".sec1").style.display = "none";
+   document.querySelector(".sec2").style.display = "flex";
+  
+  },700)
+ }
+
+</script>
+</body>
+</html>
